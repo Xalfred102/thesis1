@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room 51</title>
+    <link rel="icon" type="image/x-icon" href="10.png">
+    <script src="https://kit.fontawesome.com/8f3e2a2af4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        /* Your existing styles here */
+
+        .image-slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            text-align: center; /* Center the images */
+        }
+
+        .image-slider img {
+            width: 300px; /* Adjust the width as needed */
+            height: auto;
+            display: inline-block; /* Align images horizontally */
+            transition: transform 0.3s ease; /* Add smooth transition for zoom effect */
+            cursor: pointer;
+        }
+
+        .image-slider img.zoomed {
+            transform: scale(1.5); /* Zoom effect for the clicked image */
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            transform: translateY(-50%);
+            transition: background-color 0.3s ease; /* Add transition effect */
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Style for arrows on hover */
+        .prev:hover, .next:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <!-- Navbar at the top with logo -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="logo.png" alt="Boarding House Logo" width="60" height="54"></a>
+        </div>
+    </nav>
+
+    <!-- Room 51 Section -->
+    <div class="container mt-5">
+        <h2 class="mb-4">Room 51</h2>
+
+        <div class="image-slider">
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <img src="front.jpg" alt="Room 51 Image" onclick="toggleZoom(this)">
+            <img src="pa.jpg" alt="Room 51 Image" onclick="toggleZoom(this)">
+            <img src="r.jpg" alt="Room 51 Image" onclick="toggleZoom(this)">
+            <!-- Add more images as needed -->
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Room 51</h5>
+                <p class="card-text">Features:
+                    <ul>
+                        <li>Double Bed</li>
+                        <li>Clean CR</li>
+                        <li>Free Wifi</li>
+                    </ul>
+                </p>
+                <button class="btn btn-success" onclick="redirectToPayment()">Book Now</button>
+            </div>
+        </div>
+
+        <!-- Back button at the bottom -->
+        <div class="fixed-bottom">
+            <a class="btn btn-secondary m-3" href="room.html"><i class="fas fa-arrow-left"></i> Back</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (optional, for some components) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Your custom JavaScript for the image slider -->
+    <script>
+
+    function redirectToPayment() {
+        window.location.href = "payment.html";
+    }
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.image-slider img');
+
+        function showSlide(index) {
+            if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else if (index >= slides.length) {
+                currentSlide = 0;
+            } else {
+                currentSlide = index;
+            }
+
+            slides.forEach((slide, i) => {
+                if (i === currentSlide) {
+                    slide.style.display = 'inline-block';
+                } else {
+                    slide.style.display = 'none';
+                }
+            });
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+            toggleZoom(slides[currentSlide]); // Ensure zoom is disabled when changing slides
+        }
+
+        function toggleZoom(element) {
+            element.classList.toggle('zoomed');
+        }
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>

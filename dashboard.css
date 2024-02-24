@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(19deg, #000000 0%, #ffffff 100%); 
+
+}
+
+li{
+  list-style: none;
+  color: rgb(0, 0, 0);
+}
+
+h1 {
+  color: rgb(0, 0, 0);
+}
+
+
+
+.side-bar {
+  position: fixed;
+  background: #ecffff;
+  width: 20vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-bar .logo-name {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-bar li {
+  font-size: 19px;
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+}
+
+.side-bar li:hover {
+  background: white;
+  color: #000000;
+}
+
+/***** cards *****/
+.container{
+  margin-top:100px;
+}
+
+.counter-box {
+display: block;
+background: rgb(255, 255, 255);
+padding: 40px 20px 37px;
+text-align: center
+}
+
+.counter-box p {
+margin: 5px 0 0;
+padding: 0;
+color: #909090;
+font-size: 18px;
+font-weight: 500
+}
+
+.counter-box i {
+font-size: 60px;
+margin: 0 0 15px;
+color: #d2d2d2
+}
+
+.counter { 
+display: block;
+font-size: 32px;
+font-weight: 700;
+color: #666;
+line-height: 28px
+}
+
+.counter-box.colored {
+    background: #219709;
+}
+
+.counter-box.colored p,
+.counter-box.colored i,
+.counter-box.colored .counter {
+color: #fff
+}
+/***** End cards *****/
